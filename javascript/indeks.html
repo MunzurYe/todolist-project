@@ -1,0 +1,166 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>İnput Eventlari</title>
+<style type="text/css" id="operaUserStyle"></style></head>
+
+
+<style>
+
+ 
+.list-group-item {
+    background-color: #f8f9fa; /* Açık gri arka plan */
+    border: 2px solid #dee2e6; /* Hafif kenarlık */
+    border-radius: 5px; /* Yumuşak köşeler */
+    margin-bottom: 10px; /* Öğeler arasındaki boşluk */
+    padding: 10px 15px; /* İç boşluk */
+    display: flex; /* İçeriği hizalamak için flexbox kullan */
+    justify-content: space-between; /* Silme butonunu sağa hizala */
+    align-items: center; /* Dikey hizalama */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    transition: background-color 0.3s ease; /* Geçiş efekti */
+}
+
+.list-group-item:hover {
+    background-color: #1875d3; /* Hover sırasında arka plan rengi */
+}
+
+.delete-item i {
+    color: #dc3545; /* Kırmızı renk */
+    font-size: 1.2rem; /* Büyük simge */
+    cursor: pointer; /* İşaretçi imleci */
+    transition: color 0.3s ease; /* Geçiş efekti */
+}
+
+.delete-item i:hover {
+    color: #b21f2d; /* Hover sırasında koyu kırmızı */
+}
+
+#clearButton {
+    background-color: #007bff; /* Ana renk */
+    border-radius: 20px; /* Yumuşak köşeler */
+    border: none; /* Kenarlık yok */
+    padding: 8px 20px; /* İç boşluk */
+    transition: background-color 0.3s ease; /* Geçiş efekti */
+}
+
+#clearButton {
+    background-color: #0eef06; /* Hover sırasında koyu mavi */
+}
+
+.card-title {
+    font-weight: bold; /* Başlıkları vurgulamak için kalın yazı */
+}
+
+#todoName, #todoSearch {
+    border-radius: 20px; /* Input alanlarına yumuşak köşeler */
+    border: 1px solid #ced4da; /* Hafif kenarlık */
+    padding-left: 15px; /* İç boşluk */
+}
+
+#todoAddButton {
+    background-color: 0eef06;
+    border-radius: 20px; /* Butona yumuşak köşeler */
+    padding: 10px 20px; /* Buton iç boşluğu */
+}
+
+.input-container {
+    position: relative;
+    width: 100% ;
+}
+#todoName{
+    width: 100%;
+    padding-right: 30px;
+}
+.clear-button {
+            position: absolute;
+            right: 10px; /* Butonu sağ köşeye yerleştirir */
+            top: 50%;
+            transform: translateY(-50%); /* Butonu dikey olarak ortalar */
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .clear-button:hover {
+            color: #333;
+        }
+
+
+</style>
+
+        
+<body>
+
+    <div class="container">    
+    
+        <div class="row">
+            <div class="card w-100 mt-3">
+                <div class="card-header">
+                    <h5 class="card-title">Todo List Sayfası </h5>
+                </div>
+
+
+                <div class="card-body">
+                    <form id="todoAddForm" class="mt-2">
+
+                        <div class="input-container">
+                        <input type="text" class="form-control mt-2" id="todoName" aria-describedby="todo" placeholder="Todo Giriniz">
+                        <button  type="button" class="clear-button" onclick="clearInput()">❌</button>
+                        </div>
+
+                        <button id="todoAddButton" type="submit" class="btn btn-primary mt-4 btn-sm">
+                            Todo Ekleyin</button>
+                    </form>
+                   
+                    <hr>
+
+                </div>
+
+                <hr>
+
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title">Todo Listesi</h5>
+                    <form name="form2" id="todoListForm">
+
+                        <input id="todoSearch" type="text" class="form-control mt-3" placeholder="Todo Arayınız">
+                        <hr>
+                    </form>
+
+                    <ul class="list-group">
+
+                       
+                      </ul>
+
+                        <a href="#"  id="clearButton" class="btn btn-primary btn-sm mt-3">Tüm Todoları Temizle</a>
+                </div>
+            </div>
+        </div>
+   </div>
+
+<script>
+    
+function clearInput(){
+    document.querySelector('#todoName').value='';
+}
+</script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+
+
+</body>
+
+</html>
